@@ -8,7 +8,7 @@ namespace TestsForCustomList
     {
         [TestMethod]
         public void Add_AddingItemsToEmptyList_ItemIndexIsZero()
-        { 
+        {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
             int item = 10;
@@ -33,15 +33,60 @@ namespace TestsForCustomList
 
             // Act
             testList.Add(item);
-            actual = testList.Count; // error expected until "Count" is added to class
+            actual = testList.Count;
 
             // Assert
             Assert.AreEqual(expected, actual);
         }
         // what if i .Add to a list that has a couple things in it already (position of item)?
-        // what if i .Add to a list that has a couple things in it already (value of Count)?
-        // how does the Capacity change as you add things? (starts at 4, and doubles)
+        [TestMethod]
+        public void Add_AddItemToFilledList_ItemIndexesToNextIndex()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 15;
+            int item3 = 20;
+            int expected = 20;
+            int actual;
 
-        // REMOVE TESTS:
+            // Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            actual = testList[2];
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        // what if i .Add to a list that has a couple things in it already (value of Count)?
+        
+        [TestMethod]
+        public void Add_AddingItemsToList_CountIsTotalItemsInList()
+        {   //Arrange
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 15;
+            int item3 = 20;
+            int indexCount = testList.Count;
+            int expected = 3;
+            int actual;
+
+            // Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            actual = testList.Count; 
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+            // how does the Capacity change as you add things? (starts at 4, and doubles)
+
+            // REMOVE TESTS:
     }
+    
+        
+
 }
