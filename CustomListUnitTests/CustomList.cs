@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomListUnitTests
+namespace CustomList_Proj
 {
     public class CustomList<T>
     {

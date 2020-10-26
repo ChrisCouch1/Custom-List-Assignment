@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CustomList_Proj;
 
 namespace TestsForCustomList
 {
@@ -112,11 +113,11 @@ namespace TestsForCustomList
         // REMOVE TESTS:
         // To remove items, the items will need to be added first.
 
-        [TestMethod]
+      //  [TestMethod]
         //Test to check that all items are removed
         //Test to check that when one item is removed, the count goes down by one.
         //Test to check that when one item is removed from the middle, the items slide down the index.
-        //
+        //Test that when multiple items with same value exist, and one is removed, the correct one is removed.
 
     }
     
