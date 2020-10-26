@@ -60,7 +60,7 @@ namespace TestsForCustomList
             Assert.AreEqual(expected, actual);
         }
         // what if i .Add to a list that has a couple things in it already (value of Count)?
-        
+
         [TestMethod]
         public void Add_AddingItemsToList_CountIsTotalItemsInList()
         {   //Arrange
@@ -76,15 +76,48 @@ namespace TestsForCustomList
             testList.Add(item1);
             testList.Add(item2);
             testList.Add(item3);
-            actual = testList.Count; 
+            actual = testList.Count;
 
             // Assert
             Assert.AreEqual(expected, actual);
         }
 
-            // how does the Capacity change as you add things? (starts at 4, and doubles)
+        // how does the Capacity change as you add things? (starts at 4, and doubles)
+        [TestMethod]
+        public void Add_AddingItemsToCapacity_CapacityDoubles()
+        {
+            //Arrange
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 15;
+            int item3 = 20;
+            int item4 = 25;
+            int item5 = 30;
+            int expected = 8;
+            int actual;
 
-            // REMOVE TESTS:
+            //Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Add(item4);
+            testList.Add(item5);
+            actual = testList.Capacity;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        // REMOVE TESTS:
+        // To remove items, the items will need to be added first.
+
+        [TestMethod]
+        //Test to check that all items are removed
+        //Test to check that when one item is removed, the count goes down by one.
+        //Test to check that when one item is removed from the middle, the items slide down the index.
+        //
+
     }
     
         
