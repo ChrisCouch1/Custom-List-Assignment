@@ -25,7 +25,12 @@ namespace CustomListUnitTests
                 return capacity;
             }
         }
-        T[] items;
+        private T[] items;
+
+        public CustomList()
+        {
+            items = new T[4];
+        }
 
         public void Add(T items)
         {
