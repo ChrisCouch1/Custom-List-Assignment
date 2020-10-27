@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
 using System.Text;
@@ -56,7 +57,14 @@ namespace CustomList_Proj
             }
             else if(count == capacity)
             {
-
+                
+                T[] itemsNew = new T[capacity * 2];
+                for(int i = 0; i < count; i++)
+                {                    
+                    itemsNew[i]=(item);
+                    count++;
+                }
+                items = itemsNew;
             }
 
             
