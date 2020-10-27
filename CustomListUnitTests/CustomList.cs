@@ -37,5 +37,10 @@ namespace CustomList_Proj
             //logic to add items to the array.
             
         }
+        public void Remove(T item)
+        {
+            //logic to remove items from the array.
+
+        }
     }
 }

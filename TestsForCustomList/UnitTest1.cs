@@ -113,11 +113,93 @@ namespace TestsForCustomList
         // REMOVE TESTS:
         // To remove items, the items will need to be added first.
 
-      //  [TestMethod]
+      
         //Test to check that all items are removed
+        [TestMethod]
+        public void Remove_AddThenRemoveItems_CheckToSeeTheyAreAllGone()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int expected = 10;
+            int actual;
+
+            // Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Remove(item1);
+            testList.Remove(item2);
+            actual = testList.Count;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
         //Test to check that when one item is removed, the count goes down by one.
+        [TestMethod]
+        public void Remove_AddSeveralItems_ButOnlyRemoveOne()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int expected = 10;
+            int actual;
+
+            // Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Remove(item1);
+            testList.Remove(item2);
+            actual = testList.Count;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
         //Test to check that when one item is removed from the middle, the items slide down the index.
+        [TestMethod]
+        public void Remove_AddSeveralItemsThenRemoveOne_IndexShouldSlideToFillTheBlank()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int item3 = 30;
+            int expected = 30;
+            int actual;
+
+            // Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Remove(item2);
+            actual = testList[1];
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
         //Test that when multiple items with same value exist, and one is removed, the correct one is removed.
+        [TestMethod]
+        public void Remove_AddItemsWithSameValues_RemoveTheCorrectOne()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 10;
+            int item3 = 10;
+            int expected = 10;
+            int actual;
+
+            // Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Remove(item2);
+            actual = testList[1];
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
 
     }
     
