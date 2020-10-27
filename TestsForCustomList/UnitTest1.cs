@@ -174,7 +174,9 @@ namespace TestsForCustomList
             testList.Add(item1);
             testList.Add(item2);
             testList.Add(item3);
-            testList.Remove[2];
+            testList.Add(item4);
+            testList.Add(item5);
+            testList.Remove(item3);
             actual = testList[3];
 
             // Assert

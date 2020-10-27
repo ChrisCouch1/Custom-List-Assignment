@@ -35,12 +35,17 @@ namespace CustomList_Proj
         public void Add(T items)
         {
             //1. I'll need to have an array.
-            //2. I'll 
+            //2. I'll need to add the next item to the next open slot
+            //3. If the array is full, I will need to create another array with twice the capacity,
+            //   and copy the items from the old one to the new one.
+
             
         }
         public void Remove(T item)
         {
-            //logic to remove items from the array.
+            //1. I'll need to search the array to find the correct item.
+            //2. I'll need to remove that specific item.
+            //3. I'll need the other object in the list to fill in the blank in proper order.
 
         }
     }
