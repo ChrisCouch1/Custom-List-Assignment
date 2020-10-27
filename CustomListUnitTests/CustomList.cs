@@ -43,8 +43,8 @@ namespace CustomList_Proj
 
         public void Add(T item)
         {
-            //1. I'll need to have an array.
-            //2. I'll need to add the next item to the next open slot
+            //*1. I'll need to have an array.
+            //*2. I'll need to add the next item to the next open slot
             //-- have a function to check how many items exist, and set the indexer to +1.
             //3. If the array is full, I will need to create another array with twice the capacity,
             //   and copy the items from the old one to the new one.
@@ -61,7 +61,7 @@ namespace CustomList_Proj
                 T[] itemsNew = new T[capacity * 2];
                 for(int i = 0; i < count; i++)
                 {                    
-                    itemsNew[i]=(item);
+                    itemsNew[i]=items[i];
                     count++;
                 }
                 items = itemsNew;
