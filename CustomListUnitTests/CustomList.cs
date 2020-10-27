@@ -34,7 +34,8 @@ namespace CustomList_Proj
 
         public void Add(T items)
         {
-            //logic to add items to the array.
+            //1. I'll need to have an array.
+            //2. I'll 
             
         }
         public void Remove(T item)

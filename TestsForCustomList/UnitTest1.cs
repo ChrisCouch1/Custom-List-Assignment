@@ -122,7 +122,7 @@ namespace TestsForCustomList
             CustomList<int> testList = new CustomList<int>();
             int item1 = 10;
             int item2 = 20;
-            int expected = 10;
+            int expected = 0;
             int actual;
 
             // Act
@@ -165,29 +165,31 @@ namespace TestsForCustomList
             int item1 = 10;
             int item2 = 20;
             int item3 = 30;
-            int expected = 30;
+            int item4 = 40;
+            int item5 = 50;
+            int expected = 50;
             int actual;
 
             // Act
             testList.Add(item1);
             testList.Add(item2);
             testList.Add(item3);
-            testList.Remove(item2);
-            actual = testList[1];
+            testList.Remove[2];
+            actual = testList[3];
 
             // Assert
             Assert.AreEqual(expected, actual);
         }
         //Test that when multiple items with same value exist, and one is removed, the correct one is removed.
         [TestMethod]
-        public void Remove_AddItemsWithSameValues_RemoveTheCorrectOne()
+        public void Remove_AddItemsWithSameValues_RemoveJustOne()
         {
             // Arrange
             CustomList<int> testList = new CustomList<int>();
             int item1 = 10;
             int item2 = 10;
             int item3 = 10;
-            int expected = 10;
+            int expected = 2;
             int actual;
 
             // Act
@@ -195,7 +197,7 @@ namespace TestsForCustomList
             testList.Add(item2);
             testList.Add(item3);
             testList.Remove(item2);
-            actual = testList[1];
+            actual = testList.Count;
 
             // Assert
             Assert.AreEqual(expected, actual);
