@@ -74,7 +74,20 @@ namespace CustomList_Proj
             //1. I'll need to search the array to find the correct item.
             //2. I'll need to remove that specific item.
             //3. I'll need the other object in the list to fill in the blank in proper order.
+            //--That means making a loop to create a new array that is one element smaller,
+            //--adding back all the original elements except for the one the user wants 
+            //--to delete.
+            T[] itemsNew = new T[count - 1];
 
+            foreach(T element in items)
+            {
+                if(element == item)
+                {
+
+                }
+
+            }
+            
         }
     }
 }
