@@ -36,20 +36,28 @@ namespace CustomList_Proj
         public CustomList()
         {
             count = 0;
-            items = new T[4];
+            capacity = 4;
+            items = new T[capacity];
         }
 
         public void Add(T item)
         {
-            items[count] = item;
-            count++;
-
             //1. I'll need to have an array.
             //2. I'll need to add the next item to the next open slot
             //-- have a function to check how many items exist, and set the indexer to +1.
             //3. If the array is full, I will need to create another array with twice the capacity,
             //   and copy the items from the old one to the new one.
             //-- run a foreach loop to find each item, copy it and set it in the new array.
+
+            if (count != capacity)
+            {
+                items[count] = item;
+                count++;
+            }
+            else if(count == capacity)
+            {
+
+            }
 
             
         }
