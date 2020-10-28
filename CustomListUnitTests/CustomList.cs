@@ -19,25 +19,38 @@ namespace CustomList_Proj
             set { items[i] = value; }
         }
     
-        public int Count { get;}
+        public int Count 
+        {
+            get
+            {
+                return count;
+            }
+        }
+
         
-        public int Capacity { get;}
+        public int Capacity 
+        {
+            get
+            {
+                return capacity;
+            }
+        }
                 
         private T[] items;
 
         public IEnumerator GetEnumerator()
         {
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < count; i++)
             {
                 yield return items[i];
             }
         }
 
 
-        public CustomList(int Capacity)
+        public CustomList()
         {
-            this.capacity = Capacity;
-            items = new T[Capacity];
+            capacity = 4;
+            items = new T[capacity];
         }
 
         public void Add(T item)
@@ -49,24 +62,19 @@ namespace CustomList_Proj
             //   and copy the items from the old one to the new one.
             //-- run a foreach loop to find each item, copy it and set it in the new array.
 
-            if (Count < Capacity)
+            if(count == capacity)
             {
-                items[Count] = item;
-                count++;
-            }
-            else if(Count == Capacity)
-            {
-
-                T[] itemsNew = new T[Capacity * 2];
+                capacity *= 2;
+                T[] itemsNew = new T[capacity];
                 
-                for(int i = 0; i < items.Length; i++)
+                for(int i = 0; i < count; i++)
                 {                    
                     itemsNew[i]=items[i];                    
                 }
                 items = itemsNew;
-                items[Count] = item;
-                count++;
             }
+                items[count] = item;
+                count++;
 
             
         }
@@ -82,7 +90,7 @@ namespace CustomList_Proj
 
             foreach(T element in items)
             {
-                if () 
+                if (element.Equals(item)) 
                 { 
 
                 }
