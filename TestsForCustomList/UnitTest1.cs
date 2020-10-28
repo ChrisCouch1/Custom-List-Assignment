@@ -77,7 +77,7 @@ namespace TestsForCustomList
             testList.Add(item1);
             testList.Add(item2);
             testList.Add(item3);
-            actual = testList.Count;
+            actual = indexCount;
 
             // Assert
             Assert.AreEqual(expected, actual);

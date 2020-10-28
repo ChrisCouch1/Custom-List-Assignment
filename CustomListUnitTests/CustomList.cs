@@ -18,27 +18,17 @@ namespace CustomList_Proj
             set { items[i] = value; }
         }
     
-        public int Count
-        {
-            get
-            {
-                return count;
-            }
-        }
-        public int Capacity
-        {
-            get
-            {
-                return capacity;
-            }
-        }
+        public int Count { get; set; }
+        
+        public int Capacity { get; set; }
+        
         private T[] items;
 
         public CustomList()
         {
-            count = 0;
-            capacity = 4;
-            items = new T[capacity];
+            Count = 0;
+            Capacity = 4;
+            items = new T[Capacity];
         }
 
         public void Add(T item)
@@ -50,19 +40,19 @@ namespace CustomList_Proj
             //   and copy the items from the old one to the new one.
             //-- run a foreach loop to find each item, copy it and set it in the new array.
 
-            if (count != capacity)
+            if (Count != Capacity)
             {
-                items[count] = item;
-                count++;
+                items[Count] = item;
+                Count++;
             }
-            else if(count == capacity)
+            else if(Count == Capacity)
             {
                 
-                T[] itemsNew = new T[capacity * 2];
-                for(int i = 0; i < count; i++)
+                T[] itemsNew = new T[Capacity * 2];
+                for(int i = 0; i < Count; i++)
                 {                    
                     itemsNew[i]=items[i];
-                    count++;
+                    Count++;
                 }
                 items = itemsNew;
             }
@@ -77,7 +67,7 @@ namespace CustomList_Proj
             //--That means making a loop to create a new array that is one element smaller,
             //--adding back all the original elements except for the one the user wants 
             //--to delete.
-            T[] itemsNew = new T[count - 1];
+            T[] itemsNew = new T[Count - 1];
 
             foreach(T element in items)
             {
