@@ -11,7 +11,7 @@ namespace TestsForCustomList
         public void Add_AddingItemsToEmptyList_ItemIndexIsZero()
         {
             // Arrange
-            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList = new CustomList<int>(4);
             int item = 10;
             int expected = 10;
             int actual;
@@ -27,7 +27,7 @@ namespace TestsForCustomList
         public void Add_AddItemToEmptyList_CountIncrementsToOne()
         {
             // Arrange
-            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList = new CustomList<int>(4);
             int item = 10;
             int expected = 1;
             int actual;
@@ -44,7 +44,7 @@ namespace TestsForCustomList
         public void Add_AddItemToFilledList_ItemIndexesToNextIndex()
         {
             // Arrange
-            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList = new CustomList<int>(4);
             int item1 = 10;
             int item2 = 15;
             int item3 = 20;
@@ -65,7 +65,7 @@ namespace TestsForCustomList
         [TestMethod]
         public void Add_AddingItemsToList_CountIsTotalItemsInList()
         {   //Arrange
-            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList = new CustomList<int>(4);
             int item1 = 10;
             int item2 = 15;
             int item3 = 20;
@@ -88,7 +88,7 @@ namespace TestsForCustomList
         public void Add_AddingItemsToCapacity_CapacityDoubles()
         {
             //Arrange
-            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList = new CustomList<int>(4);
             int item1 = 10;
             int item2 = 15;
             int item3 = 20;
@@ -119,7 +119,7 @@ namespace TestsForCustomList
         public void Remove_AddThenRemoveItems_CheckToSeeTheyAreAllGone()
         {
             // Arrange
-            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList = new CustomList<int>(4);
             int item1 = 10;
             int item2 = 20;
             int expected = 0;
@@ -140,7 +140,7 @@ namespace TestsForCustomList
         public void Remove_AddSeveralItems_ButOnlyRemoveOne()
         {
             // Arrange
-            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList = new CustomList<int>(4);
             int item1 = 10;
             int item2 = 20;
             int expected = 10;
@@ -161,7 +161,7 @@ namespace TestsForCustomList
         public void Remove_AddSeveralItemsThenRemoveOne_IndexShouldSlideToFillTheBlank()
         {
             // Arrange
-            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList = new CustomList<int>(4);
             int item1 = 10;
             int item2 = 20;
             int item3 = 30;
@@ -187,7 +187,7 @@ namespace TestsForCustomList
         public void Remove_AddItemsWithSameValues_RemoveJustOne()
         {
             // Arrange
-            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList = new CustomList<int>(4);
             int item1 = 10;
             int item2 = 10;
             int item3 = 10;

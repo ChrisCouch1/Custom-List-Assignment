@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CustomList_Proj
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         private int count;
         private int capacity;
@@ -18,16 +19,24 @@ namespace CustomList_Proj
             set { items[i] = value; }
         }
     
-        public int Count { get; set; }
+        public int Count { get;}
         
-        public int Capacity { get; set; }
-        
+        public int Capacity { get;}
+                
         private T[] items;
 
-        public CustomList()
+        public IEnumerator GetEnumerator()
         {
-            Count = 0;
-            Capacity = 4;
+            for (int i = 0; i < items.Length; i++)
+            {
+                yield return items[i];
+            }
+        }
+
+
+        public CustomList(int Capacity)
+        {
+            this.capacity = Capacity;
             items = new T[Capacity];
         }
 
@@ -40,21 +49,23 @@ namespace CustomList_Proj
             //   and copy the items from the old one to the new one.
             //-- run a foreach loop to find each item, copy it and set it in the new array.
 
-            if (Count != Capacity)
+            if (Count < Capacity)
             {
                 items[Count] = item;
-                Count++;
+                count++;
             }
             else if(Count == Capacity)
             {
-                
+
                 T[] itemsNew = new T[Capacity * 2];
-                for(int i = 0; i < Count; i++)
+                
+                for(int i = 0; i < items.Length; i++)
                 {                    
-                    itemsNew[i]=items[i];
-                    Count++;
+                    itemsNew[i]=items[i];                    
                 }
                 items = itemsNew;
+                items[Count] = item;
+                count++;
             }
 
             
@@ -71,8 +82,8 @@ namespace CustomList_Proj
 
             foreach(T element in items)
             {
-                if(element == item)
-                {
+                if () 
+                { 
 
                 }
 
