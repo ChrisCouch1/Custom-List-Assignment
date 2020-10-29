@@ -149,6 +149,18 @@ namespace CustomList_Proj
                 }
             }
             return list1;
-        }      
+        }
+        public CustomList<T> Zip(CustomList<T> list1, CustomList<T> list2)
+        {
+            CustomList<T> output = new CustomList<T>();
+                    
+            for(int i = 0; i < ((list1.count + list2.count)/2); i++)
+            {
+                output.Add(list1[i]);
+                output.Add(list2[i]);
+                
+            }
+            return output;
+        }
     }
 }

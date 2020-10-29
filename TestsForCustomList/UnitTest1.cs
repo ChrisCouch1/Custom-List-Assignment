@@ -461,7 +461,67 @@ namespace TestsForCustomList
             Assert.AreEqual(expected, actual);
 
         }
+        [TestMethod]
+        public void Zip_CombineTwoLists_OutputShouldBeAlternatingItemsFromBothLists()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> testListOutput = new CustomList<int>();
+            int item1 = 1;
+            int item2 = 2;
+            int item3 = 3;
+            int item4 = 4;
+            string expected = "1, 2, 3, 4";
+            string actual;
 
+            //Act
+            testList.Add(item1);
+            testList.Add(item3);
+            testList2.Add(item2);
+            testList2.Add(item4);
+            testListOutput = testListOutput.Zip(testList, testList2);
+            actual = testListOutput.ToString();
 
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void Zip_CombineTwoListsAndThenTwoMoreLists_OutputShouldBeAlternatingItemsFromAllLists()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> testList3 = new CustomList<int>();
+            CustomList<int> testList4 = new CustomList<int>();
+            CustomList<int> testList5 = new CustomList<int>();
+            CustomList<int> testList6 = new CustomList<int>();
+            CustomList<int> testListOutput = new CustomList<int>();
+            int item1 = 1;
+            int item2 = 2;
+            int item3 = 3;
+            int item4 = 4;
+            string expected = "1, 1, 2, 2, 3, 3, 4, 4";
+            string actual;
+
+            //Act
+            testList.Add(item1);
+            testList.Add(item3);
+            testList2.Add(item2);
+            testList2.Add(item4);
+            testList3.Add(item1);
+            testList3.Add(item3);
+            testList4.Add(item2);
+            testList4.Add(item4);
+            testList5 = testList5.Zip(testList, testList2);
+            testList6 = testList6.Zip(testList3, testList4);
+            testListOutput = testListOutput.Zip(testList5, testList6);
+            actual = testListOutput.ToString();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
     }
 }

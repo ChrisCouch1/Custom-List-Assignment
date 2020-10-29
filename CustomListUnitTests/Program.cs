@@ -10,11 +10,6 @@ namespace CustomList_Proj
     {
         static void Main(string[] args)
         {
-          
-
-
-
-
 
         }
     }
