@@ -403,6 +403,65 @@ namespace TestsForCustomList
             testListOutput = testList + testList2 - testList3;
             actual = testListOutput.Count;
         }
+        [TestMethod]
+        public void ToStringMethod_AddItemsToList_DisplayItemsInList()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            int item1 = 10;
+            string expected = "10";
+
+            // Act
+            testList.Add(item1);
+            string actual = testList.ToString();
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ToStringMethod_AddTwoLists_DisplayTotalList()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> testListOutput = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            string expected = "10, 20";
+
+            // Act
+            testList.Add(item1);
+            testList2.Add(item2);
+            testListOutput = testList + testList2;
+            string actual = testListOutput.ToString();
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void ToStringMethod_SubtractTwoLists_DisplayTotalList()
+        {
+            // Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> testListOutput = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            string expected = "10";
+
+            // Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList2.Add(item2);
+            testListOutput = testList - testList2;
+            string actual = testListOutput.ToString();
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
 
     }
 }
