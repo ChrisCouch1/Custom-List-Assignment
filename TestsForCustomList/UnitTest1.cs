@@ -142,7 +142,7 @@ namespace TestsForCustomList
             CustomList<int> testList = new CustomList<int>();
             int item1 = 10;
             int item2 = 20;
-            int expected = 10;
+            int expected = 0;
             int actual;
 
             // Act
@@ -203,7 +203,7 @@ namespace TestsForCustomList
             // Assert
             Assert.AreEqual(expected, actual);
         }
-
+        
     }
     
         

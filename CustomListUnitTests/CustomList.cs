@@ -18,8 +18,8 @@ namespace CustomList_Proj
             get { return items[i]; }
             set { items[i] = value; }
         }
-    
-        public int Count 
+
+        public int Count
         {
             get
             {
@@ -27,15 +27,15 @@ namespace CustomList_Proj
             }
         }
 
-        
-        public int Capacity 
+
+        public int Capacity
         {
             get
             {
                 return capacity;
             }
         }
-                
+
         private T[] items;
 
         public IEnumerator GetEnumerator()
@@ -62,21 +62,21 @@ namespace CustomList_Proj
             //   and copy the items from the old one to the new one.
             //-- run a foreach loop to find each item, copy it and set it in the new array.
 
-            if(count == capacity)
+            if (count == capacity)
             {
                 capacity *= 2;
                 T[] itemsNew = new T[capacity];
-                
-                for(int i = 0; i < count; i++)
-                {                    
-                    itemsNew[i]=items[i];                    
+
+                for (int i = 0; i < count; i++)
+                {
+                    itemsNew[i] = items[i];
                 }
                 items = itemsNew;
             }
-                items[count] = item;
-                count++;
+            items[count] = item;
+            count++;
 
-            
+
         }
         public void Remove(T item)
         {
@@ -86,17 +86,38 @@ namespace CustomList_Proj
             //--That means making a loop to create a new array that is one element smaller,
             //--adding back all the original elements except for the one the user wants 
             //--to delete.
-            T[] itemsNew = new T[Count - 1];
+            T[] itemsNew = new T[capacity];
+            count = 0;
 
-            foreach(T element in items)
+            foreach (T element in items)
             {
-                if (element.Equals(item)) 
-                { 
-
+                if (element.Equals(item))
+                {
+                    item = default(T);
                 }
-
+                else
+                {
+                    itemsNew[count] = element;
+                    count++;
+                }
+                items = itemsNew;
             }
-            
         }
+        public override string ToString()
+        {
+            string displayList ="";
+            int i;
+            if (count > 0)
+            {
+                for (i = 0; i < count; i++)
+                {
+                    displayList += items[i].ToString() + ", ";
+                }
+                displayList = displayList.Substring(0, displayList.Length - 2);
+            }
+            return displayList;
+        }
+
+       
     }
 }
