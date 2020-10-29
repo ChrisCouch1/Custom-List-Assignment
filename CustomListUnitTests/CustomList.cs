@@ -118,6 +118,22 @@ namespace CustomList_Proj
             return displayList;
         }
 
+        public static CustomList<T> operator+ (CustomList<T> list1, CustomList<T> list2)
+        {
+            CustomList<T> outputList = new CustomList<T>();
+            foreach(T item in list1)
+            {
+                outputList.Add(item);
+            }
+            foreach(T item in list2)
+            {
+                outputList.Add(item);
+            }
+
+            return outputList;
+
+        }
+
        
     }
 }

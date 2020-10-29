@@ -21,8 +21,27 @@ namespace CustomList_Proj
             testList.Add(item3);
             testList.Add(item4);
             testList.Add(item5);
-            Console.WriteLine(testList.ToString());
+           
+
+            CustomList<int> testList2 = new CustomList<int>();
+            int itemA = 10;
+            int itemB = 20;
+            int itemC = 30;
+            int itemD = 40;
+            int itemE = 50;
+            testList.Add(itemA);
+            testList.Add(itemB);
+            testList.Add(itemC);
+            testList.Add(itemD);
+            testList.Add(itemE);
+
+            CustomList<int> testListOutput = new CustomList<int>();
+            testListOutput = testList + testList2;
+            Console.WriteLine(testListOutput);
             Console.ReadLine();
+
+
+
 
 
         }
