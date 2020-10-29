@@ -112,7 +112,7 @@ namespace TestsForCustomList
         // REMOVE TESTS:
         // To remove items, the items will need to be added first.
 
-      
+
         //Test to check that all items are removed
         [TestMethod]
         public void Remove_AddThenRemoveItems_CheckToSeeTheyAreAllGone()
@@ -203,9 +203,206 @@ namespace TestsForCustomList
             // Assert
             Assert.AreEqual(expected, actual);
         }
-        
-    }
-    
-        
+        [TestMethod]
+        public void AddingLists_UseThePlusOperatorWithTwoLists_FinalListCountShouldHaveAllItems()
+        {
+            //Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> testListOutput = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int item3 = 30;
+            int item4 = 40;
+            int item5 = 50;
+            int expected = 10;
+            int actual;
 
+            //Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Add(item4);
+            testList.Add(item5);
+            testList2.Add(item1);
+            testList2.Add(item2);
+            testList2.Add(item3);
+            testList2.Add(item4);
+            testList2.Add(item5);
+            testListOutput = testList + testList2;
+            actual = testListOutput.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void AddingLists_AddListsSeveralTimes_FinalListCountShouldHaveAllItems()
+        {
+            //Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> testListOutput = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int item3 = 30;
+            int item4 = 40;
+            int item5 = 50;
+            int expected = 20;
+            int actual;
+
+            //Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Add(item4);
+            testList.Add(item5);
+            testList2.Add(item1);
+            testList2.Add(item2);
+            testList2.Add(item3);
+            testList2.Add(item4);
+            testList2.Add(item5);
+            testListOutput = testList + testList2 + testList2 + testList2;
+            actual = testListOutput.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void SubtractLists_UseTheSubtractOperatorWithTwoLists_FinalListCountShouldBeLessByOne()
+        {
+            //Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> testListOutput = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int item3 = 30;
+            int item4 = 40;
+            int item5 = 50;
+            int expected = 4;
+            int actual;
+
+            //Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Add(item4);
+            testList.Add(item5);
+            testList2.Add(item5);
+            testListOutput = testList - testList2;
+            actual = testListOutput.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void SubtractLists_UseTheSubtractOperatorWithTwoEqualLists_FinalListCountShouldBeZero()
+        {
+            //Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> testListOutput = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int item3 = 30;
+            int item4 = 40;
+            int item5 = 50;
+            int expected = 0;
+            int actual;
+
+            //Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Add(item4);
+            testList.Add(item5);
+            testList2.Add(item1);
+            testList2.Add(item2);
+            testList2.Add(item3);
+            testList2.Add(item4);
+            testList2.Add(item5);
+            testListOutput = testList - testList2;
+            actual = testListOutput.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void SubtractLists_UseTheSubtractOperatorWithTwoDifferentLists_FinalListCountShouldNotChange()
+        {
+            //Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> testListOutput = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int item3 = 30;
+            int item4 = 40;
+            int item5 = 50;
+            int item6 = 5;
+            int item7 = 15;
+            int item8 = 25;
+            int expected = 5;
+            int actual;
+
+            //Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Add(item4);
+            testList.Add(item5);
+            testList2.Add(item6);
+            testList2.Add(item7);
+            testList2.Add(item8);
+
+            testListOutput = testList - testList2;
+            actual = testListOutput.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod]
+        public void AddingAndSubtractingLists_AddListsTogetherThenSubtactLists_FinalCountShouldOnlyShowCurrentItems()
+        {
+            //Arrange
+            CustomList<int> testList = new CustomList<int>();
+            CustomList<int> testList2 = new CustomList<int>();
+            CustomList<int> testList3 = new CustomList<int>();
+            CustomList<int> testListOutput = new CustomList<int>();
+            int item1 = 10;
+            int item2 = 20;
+            int item3 = 30;
+            int item4 = 40;
+            int item5 = 50;
+            int item6 = 5;
+            int item7 = 15;
+            int item8 = 25;
+            int expected = 5;
+            int actual;
+
+            //Act
+            testList.Add(item1);
+            testList.Add(item2);
+            testList.Add(item3);
+            testList.Add(item4);
+            testList.Add(item5);
+            testList2.Add(item3);
+            testList2.Add(item4);
+            testList2.Add(item5);
+            testList2.Add(item6);
+            testList2.Add(item7);
+            testList2.Add(item8);
+            testList3.Add(item3);
+            testList3.Add(item4);
+            testList3.Add(item5);
+
+
+            testListOutput = testList + testList2 - testList3;
+            actual = testListOutput.Count;
+        }
+
+    }
 }

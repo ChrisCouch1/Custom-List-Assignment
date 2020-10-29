@@ -134,6 +134,21 @@ namespace CustomList_Proj
 
         }
 
-       
+        public static CustomList<T> operator- (CustomList <T> list1, CustomList<T> list2)
+        {
+            
+            for (int i = 0; i < list1.count; i++)
+            {
+                for (int j = 0; j < list2.count; j++)
+                {
+                    if (list1[i].Equals(list2[j]))
+                    {
+                        list1.Remove(list1[i]);
+                    }                         
+                  
+                }
+            }
+            return list1;
+        }      
     }
 }
