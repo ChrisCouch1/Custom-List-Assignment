@@ -1,0 +1,24 @@
+Minus "-" Operator
+
+The subtraction operator "-" overloaded to allow removal of occurances of specific objects 
+shared between two List<T>'s.
+
+C# syntax example
+
+List<T> output = List<T> list1 - List<T> list2
+
+
+-Parameters-
+
+List<T> list1
+any list including custom lists of generic objects
+
+List<T> list2
+any list of compatible type with list1
+
+-Returns-
+
+List<T> output
+a list that includes items from List1 without contents shared with List2
+
+
